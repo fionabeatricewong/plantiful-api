@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+// const User = require('./user')
+
 const plantSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -24,6 +26,10 @@ const plantSchema = new mongoose.Schema({
   water: {
     type: String,
     required: true
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 }, {
   timestamps: true
