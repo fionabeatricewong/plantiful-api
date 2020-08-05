@@ -14,7 +14,8 @@ router.get('/plants', (req, res) => {
 
 // SHOW:
 router.get('/plants/:id', (req, res) => {
-  Plant.findById()
+  const id = req.params.id
+  Plant.findById(id)
     .then(plant => res.json({ plant: plant }))
 })
 
