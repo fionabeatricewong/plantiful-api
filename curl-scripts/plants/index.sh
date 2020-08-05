@@ -1,11 +1,7 @@
 #!/bin/sh
 
-API="http://localhost:4741"
-URL_PATH="/plants"
-
-curl "${API}${URL_PATH}" \
+curl "http://localhost:4741/plants" \
   --include \
   --request GET \
-  --header "Authorization: Bearer ${TOKEN}"
 
 echo

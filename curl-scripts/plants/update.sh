@@ -1,16 +1,18 @@
 #!/bin/bash
 
-API="http://localhost:4741"
-URL_PATH="/plants"
-
-curl "${API}${URL_PATH}/${ID}" \
+curl "http://localhost:4741/plants/${ID}" \
   --include \
   --request PATCH \
+  --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/json" \
---header "Authorization: Bearer ${TOKEN}" \
---data '{
+  --data '{
     "plant": {
-      "text": "'"${TEXT}"'"
+      "name": "'"${NAME}"'",
+      "scientificName": "'"${SCIENTIFICNAME}"'",
+      "type": "'"${TYPE}"'",
+      "soil": "'"${SOIL}"'",
+      "sunlight": "'"${SUNLIGHT}"'",
+      "water": "'"${WATER}"'"
     }
   }'
 

@@ -1,11 +1,8 @@
 #!/bin/bash
 
-API="http://localhost:4741"
-URL_PATH="/plants"
-
-curl "${API}${URL_PATH}/${ID}" \
+curl "http://localhost:4741/plants/${ID}" \
   --include \
   --request DELETE \
-  --header "Authorization: Bearer ${TOKEN}"
+  --header "Authorization: Bearer ${TOKEN}" \
 
 echo
