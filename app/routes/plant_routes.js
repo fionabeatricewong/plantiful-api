@@ -19,7 +19,7 @@ const router = express.Router()
 
 // INDEX:
 router.get('/plants', requireToken, (req, res, next) => {
-  Plant.find()
+  Plant.find({ owner: req.user.id })
     .then(plants => {
       return plants.map(plant => plant.toObject())
     })
